@@ -59,7 +59,7 @@ const SignUpForm = () => {
     return (
         <div className="sign-up-container">
             <h2>Don't have an account?</h2>
-            <h2>Sign up with email and password</h2>
+            <span>Sign up with email and password</span>
             <form onSubmit={handleSubmit}>
 
                 <FormInput
@@ -91,7 +91,7 @@ const SignUpForm = () => {
                     onChange={handleChange}
                     name="confirmPassword"
                     value={confirmPassword} />
-                <Button buttonType='inverted' type="submit">Sign Up</Button>
+                <Button  type="submit">Sign Up</Button>
 
             </form>
         </div>
