@@ -36,16 +36,16 @@ export const db = getFirestore()
 
 export const createUserDocumentFromAuth = async (
     userAuth,
-    additionalInformation = { displayName: 'sally' }
+    additionalInformation = { }
 ) => {
 
     if (!userAuth) return
 
-    const userDocRef = doc(db, 'users', userAuth.uid)
+    const userDocRef = doc(db, 'users', userAuth.uid) //dataBase, collection and unique_identifier
 
     // console.log(userDocRef)
 
-    const userSnapshot = await getDoc(userDocRef)
+    const userSnapshot = await getDoc(userDocRef) //to check if the document exist
     // console.log(userSnapshot)
     // console.log(userSnapshot.exists())
 
@@ -71,7 +71,7 @@ export const createUserDocumentFromAuth = async (
 }
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
-    if (!email || !password) return
+    if (!email || !password) return //Don't run the function
 
     return await createUserWithEmailAndPassword(auth, email, password)
 }

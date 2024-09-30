@@ -22,7 +22,7 @@ const SignUpForm = () => {
         setFormFields(defaultFormFields)
     }
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = async (event) => { //async because we are generating a user document inside an external service
         event.preventDefault()
 
         if (password !== confirmPassword) {
@@ -31,10 +31,7 @@ const SignUpForm = () => {
         }
 
         try {
-            const { user } = await createAuthUserWithEmailAndPassword(
-                email,
-                password
-            )
+            const { user } = await createAuthUserWithEmailAndPassword(email,password)
 
             await createUserDocumentFromAuth(user, { displayName });
             resetFormFields();
